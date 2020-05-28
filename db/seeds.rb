@@ -1,11 +1,10 @@
+boards = 3.times do Board.create(name: Faker::GreekPhilosophers.name)
+end
 
-  board = Board.create(name: Faker::GreekPhilosophers.name)
+lists = 15.times do |make|
+  List.create(name: Faker::Hipster.word, board_id: (make % 15/boards.size) +1)
+end
 
-  boards = 5.times(board)
-
-  list = List.create(name: Faker::Hipster.word, board_id: board ?)
-
-  lists = 3.times(list)
-
-  task = Task.create(name: Faker::Hipster.words(number: 3), list_id: current_list?)
-
+tasks = 25.times do |make|
+  Task.create(name: Faker::Hipster.words(number: 3), list_id: (make % 25/lists.size) + 1)
+end
